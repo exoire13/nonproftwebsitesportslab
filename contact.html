@@ -50,6 +50,40 @@
     </a>
   </span>
 </div>
+
+<form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+  <div class="form-row">
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" autocomplete="name" required />
+    </div>
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" autocomplete="email" required />
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label for="topic">What's this about?</label>
+    <select id="topic" name="topic">
+      <option>General question</option>
+      <option>Programs / registration</option>
+      <option>Volunteering</option>
+      <option>Partnerships / sponsorship</option>
+      <option>Donations</option>
+    </select>
+  </div>
+
+  <div class="form-field">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+  </div>
+
+  <!-- Spam trap: hidden from people, bots fill it in -->
+  <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="sr-only" aria-hidden="true" />
+
+  <button type="submit" class="button button-dark">Send Message</button>
+</form>
 </div>
 <aside>
 <p class="eyebrow">Want to help?</p>
