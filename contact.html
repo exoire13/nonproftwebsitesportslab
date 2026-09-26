@@ -51,21 +51,21 @@
   </span>
 </div>
 
-<form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<form class="contact-form" id="contact-form" action="PASTE_YOUR_WEB_APP_URL_HERE" method="POST" target="support-frame">
   <div class="form-row">
     <div class="form-field">
       <label for="name">Name</label>
-      <input type="text" id="name" name="name" autocomplete="name" required />
+      <input type="text" id="name" name="name" autocomplete="name" maxlength="120" required />
     </div>
     <div class="form-field">
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" autocomplete="email" required />
+      <input type="email" id="email" name="email" autocomplete="email" maxlength="254" required />
     </div>
   </div>
 
   <div class="form-field">
     <label for="topic">What's this about?</label>
-    <select id="topic" name="topic">
+    <select id="topic" name="category">
       <option>General question</option>
       <option>Programs / registration</option>
       <option>Volunteering</option>
@@ -76,14 +76,58 @@
 
   <div class="form-field">
     <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
+    <textarea id="message" name="message" rows="5" maxlength="5000" required></textarea>
   </div>
 
+  <input type="hidden" name="source" value="breakthroughsportsaz.org/contact" />
+  <input type="hidden" name="requestToken" id="request-token" />
+
   <!-- Spam trap: hidden from people, bots fill it in -->
-  <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="sr-only" aria-hidden="true" />
+  <input type="text" name="website" tabindex="-1" autocomplete="off" class="sr-only" aria-hidden="true" />
 
   <button type="submit" class="button button-dark">Send Message</button>
+  <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
 </form>
+
+<iframe name="support-frame" title="Form submission" hidden></iframe>
+
+<script>
+(function () {
+  var form = document.getElementById('contact-form');
+  var statusEl = document.getElementById('form-status');
+  var tokenInput = document.getElementById('request-token');
+  var button = form.querySelector('button[type="submit"]');
+  var timer;
+
+  function finish(text, state) {
+    clearTimeout(timer);
+    statusEl.textContent = text;
+    statusEl.dataset.state = state;
+    button.disabled = false;
+    button.textContent = 'Send Message';
+  }
+
+  form.addEventListener('submit', function () {
+    tokenInput.value = Date.now().toString(36) + Math.random().toString(36).slice(2);
+    button.disabled = true;
+    button.textContent = 'Sending…';
+    statusEl.textContent = '';
+    statusEl.dataset.state = '';
+    timer = setTimeout(function () {
+      finish('This is taking longer than expected. If you don’t hear back, email us at joe@breakthroughsportsaz.org.', 'error');
+    }, 20000);
+  });
+
+  window.addEventListener('message', function (event) {
+    var data = event.data;
+    if (!data || data.source !== 'breakthrough-support-form') return;
+    if (data.requestToken !== tokenInput.value) return;
+    var ok = data.status === 'ok';
+    finish(data.message, ok ? 'ok' : 'error');
+    if (ok) form.reset();
+  });
+})();
+</script>
 </div>
 <aside>
 <p class="eyebrow">Want to help?</p>
