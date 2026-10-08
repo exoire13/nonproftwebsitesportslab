@@ -1737,3 +1737,35 @@ em {
   }
 
 }
+
+.site-header .brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  max-width: 320px;
+}
+
+.site-header .site-logo {
+  display: block;
+  width: 280px;
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+  object-fit: contain;
+}
+
+.site-header .nav-wrap {
+  min-height: 90px;
+  gap: 16px;
+}
+
+@media (max-width: 760px) {
+  .site-header .site-logo {
+    width: 180px;
+    max-height: none;
+  }
+
+  .site-header .nav-wrap {
+    min-height: 75px;
+  }
+}
