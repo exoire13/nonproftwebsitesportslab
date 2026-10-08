@@ -1632,125 +1632,22 @@ em {
 
 }
 
-/* Navbar logo */
-
+/* Breakthrough Sports logo sizing */
 .site-header .brand {
-
   display: flex;
-
   align-items: center;
-
-  flex-shrink: 0;
-
-  width: auto;
-
-  max-width: 220px;
-
+  flex: 0 0 auto;
+  width: 280px;
+  max-width: 100%;
   padding: 0;
-
-}
-
-.site-header .site-logo {
-
-  display: block;
-
-  width: 280px;
-
-  max-width: 100%;
-
-  height: auto;
-
-  max-height: 65px;
-
-  object-fit: contain;
-
-}
-
-/* Keep navbar properly sized */
-
-.site-header .nav-wrap {
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  min-height: 80px;
-
-}
-
-/* Footer logo */
-
-.site-footer .footer-brand {
-
-  display: inline-flex;
-
-  align-items: center;
-
-  width: auto;
-
-  max-width: 250px;
-
-}
-
-.site-footer .footer-logo {
-
-  display: block;
-
-  width: 220px;
-
-  max-width: 100%;
-
-  height: auto;
-
-  max-height: 90px;
-
-  object-fit: contain;
-
-}
-
-/* Mobile */
-
-@media (max-width: 768px) {
-
-  .site-header .site-logo {
-
-    width: 135px;
-
-    max-height: 50px;
-
-  }
-
-  .site-header .nav-wrap {
-
-    min-height: 70px;
-
-  }
-
-  .site-footer .footer-logo {
-
-    width: 170px;
-
-    max-height: 70px;
-
-  }
-
-}
-
-.site-header .brand {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  max-width: 320px;
 }
 
 .site-header .site-logo {
   display: block;
-  width: 280px;
-  max-width: 100%;
+  width: 100%;
+  height: auto;
+  max-width: none;
   max-height: none;
-  height: auto;
   object-fit: contain;
 }
 
@@ -1759,13 +1656,37 @@ em {
   gap: 16px;
 }
 
+.site-footer .footer-brand {
+  display: inline-flex;
+  align-items: center;
+  width: 240px;
+  max-width: 100%;
+}
+
+.site-footer .footer-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+@media (max-width: 940px) and (min-width: 761px) {
+  .site-header .brand {
+    width: 200px;
+  }
+}
+
 @media (max-width: 760px) {
-  .site-header .site-logo {
+  .site-header .brand {
     width: 180px;
-    max-height: none;
   }
 
   .site-header .nav-wrap {
     min-height: 75px;
+  }
+
+  .site-footer .footer-brand {
+    width: 190px;
   }
 }
