@@ -1,159 +1,198 @@
+
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Contact Breakthrough Sports Foundation." />
-<title>Contact | Breakthrough Sports Foundation</title>
-<link rel="stylesheet" href="styles.css" />
-<script src="script.js" defer>
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Breakthrough Sports Foundation." />
+  <title>Contact | Breakthrough Sports Foundation</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
+
 <a class="skip-link" href="#main-content">Skip to main content</a>
+
 <header class="site-header">
-<div class="container nav-wrap">
-<a class="brand" href="/" aria-label="Breakthrough Sports Foundation home">
-<span class="brand-mark">B</span>
-<span>Breakthrough <strong>Sports Foundation</strong>
-</span>
-</a>
-<button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
-<span class="sr-only">Open navigation</span>
-<span>
-</span>
-<span>
-</span>
-<span>
-</span>
-</button>
-<nav id="site-nav" class="site-nav" aria-label="Main navigation">
-<a href="/">Home</a>
-<a href="/programs">Our Programs</a>
-<a href="/mission">Mission, Vision & Values</a>
-<a href="/story">Our Story</a>
-<a class="active" href="/contact">Contact</a>
-<a class="nav-donate" href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-24615">Donate Today</a>
-</nav>
-</div>
+  <div class="container nav-wrap">
+    <a class="brand" href="/" aria-label="Breakthrough Sports Foundation home">
+      <img
+        src="/images/logo.png"
+        alt="Breakthrough Sports Foundation"
+        class="site-logo"
+      />
+    </a>
+
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Open navigation</span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/programs">Our Programs</a>
+      <a href="/mission">Mission, Vision & Values</a>
+      <a href="/story">Our Story</a>
+      <a class="active" href="/contact">Contact</a>
+      <a class="nav-donate" href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-24615">Donate Today</a>
+    </nav>
+  </div>
 </header>
+
 <main id="main-content">
-<section class="contact-page section container">
-<div>
-<p class="eyebrow accent">Get in touch</p>
-<h1>We’re building something meaningful.</h1>
-<div class="contact-status">
-  <strong>Email Us</strong>
-  <span>
-  <a href="mailto:joe@breakthroughsportsaz.org">joe@breakthroughsportsaz.org</a><br>
-<a href="mailto:brian@breakthroughsportsaz.org">brian@breakthroughsportsaz.org</a>
-  </span>
-</div>
+  <section class="contact-page section container">
+    <div>
+      <p class="eyebrow accent">Get in touch</p>
+      <h1>We’re building something meaningful.</h1>
 
-<form class="contact-form" id="contact-form" action="https://script.google.com/macros/s/AKfycbwF8veEUptF49Rz-7mKBO7iW-uGXQQNWiZ3o_406xa31mdVtLTCh8wwl_81epAt2Gz-ig/exec" method="POST" target="support-frame">
-  <div class="form-row">
-    <div class="form-field">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" autocomplete="name" maxlength="120" required />
+      <div class="contact-status">
+        <strong>Email Us</strong>
+        <span>
+          <a href="mailto:joe@breakthroughsportsaz.org">joe@breakthroughsportsaz.org</a><br>
+          <a href="mailto:brian@breakthroughsportsaz.org">brian@breakthroughsportsaz.org</a>
+        </span>
+      </div>
+
+      <form
+        class="contact-form"
+        id="contact-form"
+        action="https://script.google.com/macros/s/AKfycbwF8veEUptF49Rz-7mKBO7iW-uGXQQNWiZ3o_406xa31mdVtLTCh8wwl_81epAt2Gz-ig/exec"
+        method="POST"
+        target="support-frame"
+      >
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" maxlength="120" required />
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" maxlength="254" required />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="topic">What's this about?</label>
+          <select id="topic" name="category">
+            <option>General question</option>
+            <option>Programs / registration</option>
+            <option>Volunteering</option>
+            <option>Partnerships / sponsorship</option>
+            <option>Donations</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" maxlength="5000" required></textarea>
+        </div>
+
+        <input type="hidden" name="source" value="breakthroughsportsaz.org/contact" />
+        <input type="hidden" name="requestToken" id="request-token" />
+
+        <!-- Spam trap: hidden from people, bots fill it in -->
+        <input
+          type="text"
+          name="website"
+          tabindex="-1"
+          autocomplete="off"
+          class="sr-only"
+          aria-hidden="true"
+        />
+
+        <button type="submit" class="button button-dark">Send Message</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <iframe name="support-frame" title="Form submission" hidden></iframe>
+
+      <script>
+        (function () {
+          var form = document.getElementById('contact-form');
+          var statusEl = document.getElementById('form-status');
+          var tokenInput = document.getElementById('request-token');
+          var button = form.querySelector('button[type="submit"]');
+          var timer;
+
+          function finish(text, state) {
+            clearTimeout(timer);
+            statusEl.textContent = text;
+            statusEl.dataset.state = state;
+            button.disabled = false;
+            button.textContent = 'Send Message';
+          }
+
+          form.addEventListener('submit', function () {
+            tokenInput.value = Date.now().toString(36) + Math.random().toString(36).slice(2);
+            button.disabled = true;
+            button.textContent = 'Sending…';
+            statusEl.textContent = '';
+            statusEl.dataset.state = '';
+
+            timer = setTimeout(function () {
+              finish(
+                'This is taking longer than expected. If you don’t hear back, email us at joe@breakthroughsportsaz.org.',
+                'error'
+              );
+            }, 20000);
+          });
+
+          window.addEventListener('message', function (event) {
+            var data = event.data;
+            if (!data || data.source !== 'breakthrough-support-form') return;
+            if (data.requestToken !== tokenInput.value) return;
+
+            var ok = data.status === 'ok';
+            finish(data.message, ok ? 'ok' : 'error');
+
+            if (ok) form.reset();
+          });
+        })();
+      </script>
     </div>
-    <div class="form-field">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" autocomplete="email" maxlength="254" required />
-    </div>
-  </div>
 
-  <div class="form-field">
-    <label for="topic">What's this about?</label>
-    <select id="topic" name="category">
-      <option>General question</option>
-      <option>Programs / registration</option>
-      <option>Volunteering</option>
-      <option>Partnerships / sponsorship</option>
-      <option>Donations</option>
-    </select>
-  </div>
+    <aside>
+      <p class="eyebrow">Want to help?</p>
+      <h2>Get involved with us.</h2>
+      <p>Volunteer and partnership opportunities are on the way as we prepare to serve more young athletes.</p>
 
-  <div class="form-field">
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" maxlength="5000" required></textarea>
-  </div>
+      <a class="button button-dark" href="#coming-soon">
+        Get Involved <span class="coming-soon">Coming soon</span>
+      </a>
 
-  <input type="hidden" name="source" value="breakthroughsportsaz.org/contact" />
-  <input type="hidden" name="requestToken" id="request-token" />
-
-  <!-- Spam trap: hidden from people, bots fill it in -->
-  <input type="text" name="website" tabindex="-1" autocomplete="off" class="sr-only" aria-hidden="true" />
-
-  <button type="submit" class="button button-dark">Send Message</button>
-  <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-</form>
-
-<iframe name="support-frame" title="Form submission" hidden></iframe>
-
-<script>
-(function () {
-  var form = document.getElementById('contact-form');
-  var statusEl = document.getElementById('form-status');
-  var tokenInput = document.getElementById('request-token');
-  var button = form.querySelector('button[type="submit"]');
-  var timer;
-
-  function finish(text, state) {
-    clearTimeout(timer);
-    statusEl.textContent = text;
-    statusEl.dataset.state = state;
-    button.disabled = false;
-    button.textContent = 'Send Message';
-  }
-
-  form.addEventListener('submit', function () {
-    tokenInput.value = Date.now().toString(36) + Math.random().toString(36).slice(2);
-    button.disabled = true;
-    button.textContent = 'Sending…';
-    statusEl.textContent = '';
-    statusEl.dataset.state = '';
-    timer = setTimeout(function () {
-      finish('This is taking longer than expected. If you don’t hear back, email us at joe@breakthroughsportsaz.org.', 'error');
-    }, 20000);
-  });
-
-  window.addEventListener('message', function (event) {
-    var data = event.data;
-    if (!data || data.source !== 'breakthrough-support-form') return;
-    if (data.requestToken !== tokenInput.value) return;
-    var ok = data.status === 'ok';
-    finish(data.message, ok ? 'ok' : 'error');
-    if (ok) form.reset();
-  });
-})();
-</script>
-</div>
-<aside>
-<p class="eyebrow">Want to help?</p>
-<h2>Get involved with us.</h2>
-<p>Volunteer and partnership opportunities are on the way as we prepare to serve more young athletes.</p>
-<a class="button button-dark" href="#coming-soon">Get Involved <span class="coming-soon">Coming soon</span>
-</a>
-<div id="coming-soon" class="sr-only" aria-live="polite">Get involved opportunities are coming soon.</div>
-</aside>
-</section>
+      <div id="coming-soon" class="sr-only" aria-live="polite">
+        Get involved opportunities are coming soon.
+      </div>
+    </aside>
+  </section>
 </main>
+
 <footer class="site-footer">
-<div class="container footer-grid">
-<a class="brand footer-brand" href="/">
-<span class="brand-mark">B</span>
-<span>Breakthrough <strong>Sports Foundation</strong>
-</span>
-</a>
-<p>Creating opportunities through sports.</p>
-<div>
-<a href="/contact">Contact</a>
-<a href="/programs">Programs</a>
-<a href="/story">Our Story</a>
-</div>
-</div>
-<div class="container footer-bottom">© <span data-year>
-</span> Breakthrough Sports Foundation. All rights reserved.</div>
+  <div class="container footer-grid">
+    <a class="brand footer-brand" href="/" aria-label="Breakthrough Sports Foundation home">
+      <img
+        src="/images/logo.png"
+        alt="Breakthrough Sports Foundation"
+        class="footer-logo"
+      />
+    </a>
+
+    <p>Creating opportunities through sports.</p>
+
+    <div>
+      <a href="/contact">Contact</a>
+      <a href="/programs">Programs</a>
+      <a href="/story">Our Story</a>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    © <span data-year></span> Breakthrough Sports Foundation. All rights reserved.
+  </div>
 </footer>
+
 </body>
 </html>
