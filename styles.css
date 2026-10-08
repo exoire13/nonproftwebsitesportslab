@@ -981,3 +981,28 @@ em {
     grid-template-columns: 1fr;
   }
 }
+.site-logo {
+  display: block;
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.footer-logo {
+  display: block;
+  width: 230px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .site-logo {
+    width: 150px;
+  }
+
+  .footer-logo {
+    width: 190px;
+  }
+}
